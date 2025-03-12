@@ -12,6 +12,25 @@ body {
     color: #333;
 }
 
+/* Estilo retrowave para la marca */
+.navbar-brand {
+  font-size: 2rem; /* Tamaño grande para el texto */
+  font-weight: bold; /* Negrita */
+  font-family: 'Orbitron', sans-serif; /* Fuente estilo futurista y retro */
+  color: #ffffff; /* Color blanco para el texto */
+  background: linear-gradient(45deg, rgb(0, 255, 255), rgb(255, 0, 255), rgb(0, 204, 255)); /* Gradiente de colores neón */
+  background-clip: text; /* Hace que el gradiente se aplique al texto */
+  -webkit-background-clip: text; /* Compatibilidad para Webkit */
+  text-fill-color: transparent; /* Asegura que el texto sea transparente para que se vea el gradiente */
+  text-shadow: 0 0 8px rgb(255, 0, 255), 0 0 15px rgb(255, 0, 255), 0 0 30px rgb(0, 255, 255); /* Efecto de resplandor */
+  transition: transform 0.3s ease, text-shadow 0.3s ease; /* Suaviza las transiciones */
+}
+
+.navbar-brand:hover {
+  transform: scale(1.1); /* Aumenta el tamaño del texto cuando se pasa el mouse */
+  text-shadow: 0 0 20px rgb(255, 0, 255), 0 0 40px rgb(255, 0, 255), 0 0 80px rgb(0, 255, 255); /* Efecto de resplandor más fuerte */
+}
+
 
  /* Estilo general del banner */
  .banner {
@@ -67,7 +86,7 @@ body {
 }
 
 .card-img-top{
-    width: 100%;
+    width: 70%;
     height: 100%;
     border-radius: 30%;
     display: block;
