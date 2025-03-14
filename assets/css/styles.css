@@ -405,3 +405,83 @@ h3 ,p,li{
 .text-muted{
   color: var(--neon-green) !important;
 }
+
+/* Estilos para el modal de planes */
+.modal-content {
+    background: linear-gradient(45deg, #1a1a2e, #16213e);
+    border: 2px solid #ff2a6d;
+    box-shadow: 0 0 20px rgba(255, 42, 109, 0.5);
+}
+
+.modal-header {
+    border-bottom: 1px solid #ff2a6d;
+    padding: 1.5rem;
+}
+
+.modal-header .modal-title {
+    color: #05d9e8;
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(5, 217, 232, 0.7);
+}
+
+.modal-header .btn-close {
+    color: #ff2a6d;
+    text-shadow: none;
+    opacity: 1;
+    filter: invert(1) drop-shadow(0 0 2px #ff2a6d);
+}
+
+.modal-body {
+    padding: 2rem;
+    color: #fff;
+}
+
+.modal-footer {
+    border-top: 1px solid #ff2a6d;
+    padding: 1.5rem;
+}
+
+.modal-footer .btn {
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.5rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.modal-footer .btn-secondary {
+    background-color: transparent;
+    border: 1px solid #05d9e8;
+    color: #05d9e8;
+}
+
+.modal-footer .btn-secondary:hover {
+    background-color: #05d9e8;
+    color: #1a1a2e;
+    box-shadow: 0 0 15px rgba(5, 217, 232, 0.5);
+}
+
+.modal-footer .btn-primary {
+    background-color: #ff2a6d;
+    border: none;
+    color: #fff;
+}
+
+.modal-footer .btn-primary:hover {
+    background-color: #ff1a5d;
+    box-shadow: 0 0 15px rgba(255, 42, 109, 0.5);
+}
+
+/* Animación para el modal */
+.modal.fade .modal-dialog {
+    transform: scale(0.7);
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.modal.show .modal-dialog {
+    transform: scale(1);
+    opacity: 1;
+}
