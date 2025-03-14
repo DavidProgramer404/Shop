@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto - ShopWMK</title>
-    <link rel="icon" href="../assets/img/game-shop.png" type="image/icon">
+    <link rel="icon" href="../assets/img/logoretrowave.png" type="image/icon">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
@@ -19,8 +19,8 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container">
-                <img src="../assets/img/logowmkShop.PNG" alt="Logo de ShopWMK" class="iconoLogo">
-                <a class="navbar-brand" href="../index.html">DaveStore - Contacto</a>
+                <img src="../assets/img/logoretrowave.png" alt="Logo de ShopWMK" class="iconoLogo">
+                <a class="navbar-brand ms-3" href="../index.html">DaveStore - Contacto</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -30,6 +30,14 @@
                         <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
                         <li class="nav-item"><a class="nav-link" href="servicios.html">Servicios</a></li>
                         <li class="nav-item"><a class="nav-link active" href="#">Contacto</a></li>
+                        <li class="nav-item">
+                            <div class="nav-link user-profile">
+                                <span id="userDisplay" class="me-2"></span>
+                                <button onclick="logout()" class="btn btn-outline-danger btn-sm">
+                                    <i class="fas fa-sign-out-alt"></i> Salir
+                                </button>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -75,7 +83,7 @@
 
                 <div class="col-md-6">
                     <h3>Envíanos un mensaje</h3>
-                    <form>
+                    <form id="contactForm" class="p-4 rounded shadow">
                         <div class="mb-3">
                             <label for="nombre" class="form-label">Nombre completo</label>
                             <input type="text" class="form-control" id="nombre" required>
@@ -151,7 +159,7 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/app.js"></script>
+    <script src="../assets/js/app.js"></script>
 </body>
 
 </html>

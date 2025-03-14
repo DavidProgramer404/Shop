@@ -54,64 +54,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-//  Script para manejar el login
-
-document.addEventListener("DOMContentLoaded", function () {
-  const loginForm = document.getElementById("loginForm");
-  const navbarNav = document.getElementById("navbarNav");
-
-  // Verificar si hay un usuario guardado
-  const username = localStorage.getItem("username");
-  if (username) {
-    agregarBotonCerrarSesion(username);
-  } else {
-    agregarBotonIniciarSesion();
-  }
-
-  loginForm.addEventListener("submit", function (e) {
-    e.preventDefault();
-    const username = document.getElementById("username").value;
-    localStorage.setItem("username", username);
-    agregarBotonCerrarSesion(username);
-    bootstrap.Modal.getInstance(document.getElementById("loginModal")).hide();
-  });
-
-  function agregarBotonIniciarSesion() {
-    const loginLi = document.createElement("li");
-    loginLi.className = "nav-item";
-    loginLi.innerHTML = `<a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar Sesión</a>`;
-    navbarNav.querySelector("ul").appendChild(loginLi);
-  }
-
-  function agregarBotonCerrarSesion(username) {
-    const ul = navbarNav.querySelector("ul");
-    // Remover botón de inicio de sesión si existe
-    const loginButton = ul.querySelector("li:last-child");
-    if (loginButton) {
-      loginButton.remove();
-    }
-
-    const userLi = document.createElement("li");
-    userLi.className = "nav-item dropdown";
-    userLi.innerHTML = `
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        ${username}
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#" id="cerrarSesion">Cerrar Sesión</a></li>
-                    </ul>
-                `;
-    ul.appendChild(userLi);
-
-    document
-      .getElementById("cerrarSesion")
-      .addEventListener("click", function () {
-        localStorage.removeItem("username");
-        userLi.remove();
-        agregarBotonIniciarSesion();
-      });
-  }
-});
 
 
 // envio del plan paginas web 
@@ -138,3 +80,22 @@ function compartirPlan() {
     
     window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`);
 }
+
+// Verificar autenticación
+function checkAuth() {
+  const username = localStorage.getItem('username');
+  if (!username) {
+    window.location.href = 'welcome.html';
+  } else {
+    document.getElementById('userDisplay').textContent = `¡Hola, ${username}!`;
+  }
+}
+
+// Función para cerrar sesión
+function logout() {
+  localStorage.removeItem('username');
+  window.location.href = 'welcome.html';
+}
+
+// Verificar al cargar la página
+window.onload = checkAuth;

@@ -42,8 +42,8 @@
   <header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container">
-        <img src="./assets/img/logowmkShop.PNG" alt="Logo" class="iconoLogo" />
-        <a class="navbar-brand" href="#">DaveStore.cl</a>
+        <img src="./assets/img/logoretrowave.png" alt="Logo" class="iconoLogo" />
+        <a class="navbar-brand ms-3" href="#">DaveStore.cl</a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
           aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,6 +60,14 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="./pages/contacto.html">Contacto</a>
+            </li>
+            <li class="nav-item">
+              <div class="nav-link user-profile">
+                <span id="userDisplay" class="me-2"></span>
+                <button onclick="logout()" class="btn btn-outline-danger btn-sm">
+                  <i class="fas fa-sign-out-alt"></i> Salir
+                </button>
+              </div>
             </li>
           </ul>
         </div>
@@ -161,7 +169,7 @@
   </main>
 
   <!-- plantilla de Paginas web y membresias -->
-  <section class="bg-light py-5">
+  <section class="root py-5">
     <div class="container">
       <h2 class="text-center mb-5">Planes de Diseño Web</h2>
       <div class="row">
@@ -174,20 +182,19 @@
               <h4 class="card-title text-center">$149.990</h4>
               <ul class="list-unstyled mt-3 mb-4">
                 <li class="mb-2">
-                  <i class="bi bi-check-circle-fill text-success me-2"></i>Diseño Web Básico
+                  <i class="bi bi-check-circle-fill text-success me-2">Diseño Web Básico</i>
                 </li>
                 <li class="mb-2">
-                  <i class="bi bi-check-circle-fill text-success me-2"></i>Hasta 5 páginas
+                  <i class="bi bi-check-circle-fill text-success me-2">Hasta 5 páginas</i>
                 </li>
                 <li class="mb-2">
-                  <i class="bi bi-check-circle-fill text-success me-2"></i>Formulario de contacto
+                  <i class="bi bi-check-circle-fill text-success me-2">Formulario de contacto</i>
                 </li>
                 <li class="mb-2">
-                  <i class="bi bi-check-circle-fill text-success me-2"></i>Diseño responsive
+                  <i class="bi bi-check-circle-fill text-success me-2">Diseño responsive</i>
                 </li>
                 <li class="mb-2">
-                  <i class="bi bi-x-circle-fill text-danger me-2"></i>SEO
-                  básico
+                  <i class="bi bi-x-circle-fill text-danger me-2">SEO básico</i>
                 </li>
               </ul>
               <div class="text-center">
@@ -210,20 +217,19 @@
               <h4 class="card-title text-center">$299.990</h4>
               <ul class="list-unstyled mt-3 mb-4">
                 <li class="mb-2">
-                  <i class="bi bi-check-circle-fill text-success me-2"></i>Todo lo de Standard
+                  <i class="bi bi-check-circle-fill text-success me-2">Todo lo de Standard</i>
                 </li>
                 <li class="mb-2">
-                  <i class="bi bi-check-circle-fill text-success me-2"></i>Hasta 10 páginas
+                  <i class="bi bi-check-circle-fill text-success me-2">Hasta 10 páginas</i>
                 </li>
                 <li class="mb-2">
-                  <i class="bi bi-check-circle-fill text-success me-2"></i>Blog integrado
+                  <i class="bi bi-check-circle-fill text-success me-2">Blog integrado</i>
                 </li>
                 <li class="mb-2">
-                  <i class="bi bi-check-circle-fill text-success me-2"></i>SEO
-                  avanzado
+                  <i class="bi bi-check-circle-fill text-success me-2">SEO avanzado</i>
                 </li>
                 <li class="mb-2">
-                  <i class="bi bi-check-circle-fill text-success me-2"></i>Integración RRSS
+                  <i class="bi bi-check-circle-fill text-success me-2">Integración RRSS</i>
                 </li>
               </ul>
               <div class="text-center">
@@ -283,19 +289,19 @@
               <h4 class="card-title text-center">$499.990</h4>
               <ul class="list-unstyled mt-3 mb-4">
                 <li class="mb-2">
-                  <i class="bi bi-check-circle-fill text-success me-2"></i>Todo lo de Medium
+                  <i class="bi bi-check-circle-fill text-success me-2">Todo lo de Medium</i>
                 </li>
                 <li class="mb-2">
-                  <i class="bi bi-check-circle-fill text-success me-2"></i>Páginas ilimitadas
+                  <i class="bi bi-check-circle-fill text-success me-2">Páginas ilimitadas</i>
                 </li>
                 <li class="mb-2">
-                  <i class="bi bi-check-circle-fill text-success me-2"></i>E-commerce completo
+                  <i class="bi bi-check-circle-fill text-success me-2">E-commerce completo</i>
                 </li>
                 <li class="mb-2">
-                  <i class="bi bi-check-circle-fill text-success me-2"></i>Panel administrador
+                  <i class="bi bi-check-circle-fill text-success me-2">Panel administrador</i>
                 </li>
                 <li class="mb-2">
-                  <i class="bi bi-check-circle-fill text-success me-2"></i>Soporte 24/7
+                  <i class="bi bi-check-circle-fill text-success me-2">Soporte 24/7</i>
                 </li>
               </ul>
               <div class="text-center">
@@ -313,7 +319,7 @@
   </section>
 
   <!-- Reseñas de clientes -->
-  <section class="reviews-section py-5 bg-light">
+  <section class="reviews-section py-5 root">
     <div class="container">
       <h2 class="text-center mb-5">Lo que dicen nuestros clientes</h2>
       <div class="row">
@@ -455,7 +461,7 @@
       <div class="row">
         <div class="col-12 text-center">
           <p class="mb-0">
-            &copy; 2024 <strong>WebMastersKingdomSHOP</strong>. Todos los
+            &copy; 2025 <strong>DaveStore.cl</strong>. Todos los
             derechos reservados.
           </p>
         </div>
@@ -465,6 +471,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
   <script src="assets/js/app.js"></script>
+
 </body>
 
 </html>

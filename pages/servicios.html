@@ -21,8 +21,8 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container">
-                <img src="../assets/img/logowmkShop.PNG" alt="Logo" class="iconoLogo">
-                <a class="navbar-brand" href="../index.html">DaveStore - Servicios</a>
+                <img src="../assets/img/logoretrowave.png" alt="Logo" class="iconoLogo">
+                <a class="navbar-brand ms-3" href="../index.html">DaveStore - Servicios</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -32,6 +32,14 @@
                         <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
                         <li class="nav-item"><a class="nav-link active" href="#">Servicios</a></li>
                         <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                        <li class="nav-item">
+                            <div class="nav-link user-profile">
+                                <span id="userDisplay" class="me-2"></span>
+                                <button onclick="logout()" class="btn btn-outline-danger btn-sm">
+                                    <i class="fas fa-sign-out-alt"></i> Salir
+                                </button>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -60,10 +68,10 @@
                             <h3>Venta de Componentes</h3>
                             <p>Ofrecemos una amplia gama de componentes de PC de las mejores marcas con garantía oficial.</p>
                             <ul class="list-unstyled text-start">
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Procesadores</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Tarjetas gráficas</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Placas madre</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Memorias RAM</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2">Procesadores</i></li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2">Tarjetas gráficas</i></li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2">Placas madre</i></li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2">Memorias RAM</i></li>
                             </ul>
                         </div>
                     </div>
@@ -76,10 +84,10 @@
                             <h3>Servicio Técnico</h3>
                             <p>Contamos con técnicos especializados para resolver cualquier problema con tu equipo.</p>
                             <ul class="list-unstyled text-start">
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Diagnóstico gratuito</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Reparación de hardware</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Mantenimiento preventivo</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Actualización de componentes</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2">Diagnóstico gratuito</i></li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2">Reparación de hardware</i></li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2">Mantenimiento preventivo</i></li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2">Actualización de componentes</i></li>
                             </ul>
                         </div>
                     </div>
@@ -92,10 +100,10 @@
                             <h3>Armado de PC</h3>
                             <p>Te ayudamos a construir el equipo perfecto según tus necesidades y presupuesto.</p>
                             <ul class="list-unstyled text-start">
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Asesoría personalizada</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Ensamblaje profesional</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Pruebas de rendimiento</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Garantía de instalación</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2">Asesoría personalizada</i></li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2">Ensamblaje profesional</i></li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2">Pruebas de rendimiento</i></li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2">Garantía de instalación</i></li>
                             </ul>
                         </div>
                     </div>
@@ -174,8 +182,7 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/app.js"></script>
+    <script src="../assets/js/app.js"></script>
 </body>
 
 </html>
