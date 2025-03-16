@@ -18,6 +18,25 @@
 </head>
 
 <body>
+
+  <!-- Carrito de compras -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="carritoCompras" aria-labelledby="carritoComprasLabel">
+  <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="carritoComprasLabel">Carrito de Compras</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+      <div id="itemsCarrito">
+          <!-- Los items del carrito se insertarán aquí dinámicamente -->
+      </div>
+      <div class="mt-3">
+          <h6>Total: <span id="totalCarrito">$0</span></h6>
+          <button class="btn btn-success w-100" onclick="procesarCompra()">Proceder al pago</button>
+      </div>
+  </div>
+</div>
+
+
   <!-- Modal de Inicio de Sesión -->
   <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -79,8 +98,8 @@
     <!-- Hero Section -->
     <section class="hero">
       <div class="container">
-        <h1>Bienvenidos a DaveStore/Shop</h1>
-        <p>Las buenas ofertas están aquí</p>
+        <h1>¡Bienvenidos al Futuro Retro!</h1>
+        <p class="hero-subtitle">Tu destino gaming en DaveStore - Donde la nostalgia encuentra la tecnología</p>
         <!-- Carrusel -->
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner">

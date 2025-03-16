@@ -85,6 +85,17 @@ body::before {
     border-radius: 50%;
     border: 3px solid var(--neon-blue);
     box-shadow: 0 0 15px var(--neon-blue);
+    /* responsibe */
+    @media (max-width: 768px) {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        border: 3px solid var(--neon-blue);
+        box-shadow: 0 0 15px var(--neon-blue);
+        display: block;
+        margin: 0 auto;
+
+    }
 }
 
 /* Cards Styling */
@@ -143,7 +154,29 @@ body::before {
     font-family: 'Press Start 2P', cursive;
     color: var(--neon-green);
     text-shadow: 0 0 15px var(--neon-green);
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.hero-subtitle {
+    color: var(--neon-pink);
+    text-shadow: 0 0 10px var(--neon-pink);
+    font-size: 1.2rem;
+    text-align: center;
     margin-bottom: 2rem;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
 }
 
 /* Carousel */
@@ -484,4 +517,62 @@ h3 ,p,li{
 .modal.show .modal-dialog {
     transform: scale(1);
     opacity: 1;
+}
+
+/* Hamburger Menu */
+.navbar-toggler {
+    border: 2px solid var(--neon-blue);
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.navbar-toggler:hover {
+    border-color: var(--neon-pink);
+    box-shadow: 0 0 10px var(--neon-pink);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(1, 205, 254, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+/* Mobile Navigation */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background: rgba(26, 11, 46, 0.95);
+        padding: 1rem;
+        border-radius: 10px;
+        border: 1px solid var(--neon-blue);
+        margin-top: 1rem;
+    }
+
+    .nav-item {
+        margin: 0.5rem 0;
+        text-align: center;
+    }
+
+    .nav-link {
+        font-size: 1.1rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .user-profile {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .user-profile button {
+        margin-top: 0.5rem;
+    }
+}
+
+/* Hamburger retrowave - vaporwave blanco navbar-toggler-icon */
+.navbar-toggler-icon {
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7));
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .navbar-toggler-icon {
+        filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7));
+    }
 }
