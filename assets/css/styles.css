@@ -12,6 +12,18 @@ body {
     color: #333;
 }
 
+ul {
+    list-style-type: disc; /* Muestra los puntos como círculos */
+    margin-left: 20px; /* Aumenta el margen para la sangría */
+  }
+  
+  a {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
 /* Vaporwave/Retrowave Theme */
 :root {
     --neon-pink: #ff71ce;
@@ -575,4 +587,49 @@ h3 ,p,li{
     .navbar-toggler-icon {
         filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7));
     }
+}
+
+/* <!-- Carrito de compras estilo retro vaporwave -->  */
+.offcanvas {
+    background: rgba(45, 27, 78, 0.95) !important;
+    border: 2px solid var(--neon-purple);
+    box-shadow: 0 0 15px var(--neon-purple);
+}
+
+.offcanvas-header {
+    border-bottom: 1px solid var(--neon-purple);
+    background: rgba(45, 27, 78, 0.95) !important;
+    color: var(--neon-pink) !important;
+    text-shadow: 0 0 10px var(--neon-pink);
+}
+
+.offcanvas-title {
+    color: var(--neon-pink) !important;
+    text-shadow: 0 0 10px var(--neon-pink);
+}
+
+.offcanvas-body {
+    background: rgba(45, 27, 78, 0.95) !important;
+    color: var(--neon-pink) !important;
+    text-shadow: 0 0 10px var(--neon-pink);
+}
+
+.offcanvas-body .btn {
+    background: var(--neon-purple) !important;
+    
+    text-shadow: 0 0 10px var(--neon-pink);
+    border: 2px solid var(--neon-purple);
+    box-shadow: 0 0 15px var(--neon-purple);
+}
+
+.offcanvas-body .btn:hover {
+    background: var(--neon-pink) !important;
+    color: var(--darker-purple) !important;
+    box-shadow: 0 0 15px var(--neon-pink) !important;
+}
+
+.offcanvas-body .btn:active {
+    background: var(--darker-purple) !important;
+    color: var(--neon-pink) !important;
+    box-shadow: 0 0 15px var(--neon-pink) !important;
 }

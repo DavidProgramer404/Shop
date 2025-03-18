@@ -31,6 +31,43 @@
     </div>
 </div>
 
+<!-- Modal de confirmación -->
+<div class="modal fade" id="confirmarCompraModal" tabindex="-1" aria-labelledby="confirmarCompraModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmarCompraModalLabel">Confirmar compra</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>¿Estás seguro que deseas agregar <span id="productoNombre"></span> al carrito?</p>
+                <p>Precio: $<span id="productoPrecio"></span></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" id="confirmarAgregarCarrito">Confirmar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de pago completado -->
+<div class="modal fade" id="pagoCompletadoModal" tabindex="-1" aria-labelledby="pagoCompletadoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="pagoCompletadoModalLabel">¡Gracias por tu compra!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <i class="bi bi-check-circle text-success" style="font-size: 3rem;"></i>
+                <p class="mt-3">Muchas gracias por tu compra. Te redirigiremos al contacto de WhatsApp para coordinar tu producto.</p>
+                <p class="text-muted">Serás redirigido en <span id="countdown">3</span> segundos...</p>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Botón flotante del carrito -->
 <button class="btn btn-primary carrito-float" type="button" data-bs-toggle="offcanvas" data-bs-target="#carritoCompras">
     <i class="bi bi-cart"></i>
@@ -44,6 +81,7 @@
 <script>
     let carrito = [];
     let total = 0;
+    let productoSeleccionado = null;
 
     function actualizarCarrito() {
         const itemsCarrito = document.getElementById('itemsCarrito');
@@ -74,6 +112,14 @@
         cantidadCarrito.textContent = carrito.reduce((acc, item) => acc + item.cantidad, 0);
     }
 
+    function mostrarModalConfirmacion(nombre, precio) {
+        productoSeleccionado = { nombre, precio };
+        document.getElementById('productoNombre').textContent = nombre;
+        document.getElementById('productoPrecio').textContent = precio.toLocaleString('es-CL');
+        const modal = new bootstrap.Modal(document.getElementById('confirmarCompraModal'));
+        modal.show();
+    }
+
     function agregarAlCarrito(nombre, precio) {
         const itemExistente = carrito.find(item => item.nombre === nombre);
         
@@ -88,7 +134,6 @@
         }
         
         actualizarCarrito();
-        alert('Producto agregado al carrito exitosamente');
     }
 
     function eliminarDelCarrito(index) {
@@ -101,14 +146,44 @@
             alert('El carrito está vacío');
             return;
         }
-        
-        alert('¡Gracias por tu compra! Total: $' + total.toLocaleString('es-CL'));
-        carrito = [];
-        actualizarCarrito();
+
+        // Mostrar modal de pago completado
+        const modal = new bootstrap.Modal(document.getElementById('pagoCompletadoModal'));
+        modal.show();
+
+        // Iniciar cuenta regresiva
+        let countdown = 3;
+        const countdownElement = document.getElementById('countdown');
+        const countdownInterval = setInterval(() => {
+            countdown--;
+            countdownElement.textContent = countdown;
+            
+            if (countdown <= 0) {
+                clearInterval(countdownInterval);
+                modal.hide();
+                // Redirigir a WhatsApp con mensaje personalizado
+                const mensaje = `¡Hola! Me interesa comprar los siguientes productos:%0A${carrito.map(item => `- ${item.cantidad}x ${item.nombre}: $${item.precio.toLocaleString('es-CL')}`).join('%0A')}%0A%0ATotal: $${total.toLocaleString('es-CL')}`;
+                window.location.href = `https://wa.me/56999442312?text=${mensaje}`;
+                
+                // Limpiar carrito
+                carrito = [];
+                actualizarCarrito();
+            }
+        }, 1000);
     }
 
-    // Modificar los botones existentes de "Agregar al carrito"
+    // Inicialización cuando el DOM está listo
     document.addEventListener('DOMContentLoaded', function() {
+        // Configurar el botón de confirmar en el modal
+        document.getElementById('confirmarAgregarCarrito').addEventListener('click', function() {
+            if (productoSeleccionado) {
+                agregarAlCarrito(productoSeleccionado.nombre, productoSeleccionado.precio);
+                productoSeleccionado = null;
+                bootstrap.Modal.getInstance(document.getElementById('confirmarCompraModal')).hide();
+            }
+        });
+
+        // Modificar los botones existentes de "Agregar al carrito"
         const botonesCarrito = document.querySelectorAll('.btn-primary');
         botonesCarrito.forEach(boton => {
             if(boton.textContent === 'Agregar al carrito') {
@@ -117,14 +192,22 @@
                     const nombre = card.querySelector('.card-title').textContent;
                     const precioText = card.querySelector('.text-primary').textContent;
                     const precio = parseInt(precioText.replace(/[^\d]/g, ''));
-                    agregarAlCarrito(nombre, precio);
+                    mostrarModalConfirmacion(nombre, precio);
                 };
             }
+        });
+
+        // Manejar el evento de apertura del carrito
+        const carritoBtn = document.querySelector('.carrito-float');
+        carritoBtn.addEventListener('click', function() {
+            const carrito = document.getElementById('carritoCompras');
+            carrito.style.display = 'block';
         });
     });
 </script>
 
 <body>
+
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container">
@@ -195,7 +278,14 @@
                                 } else if (filtro === 'software' && titulo.includes('windows')) {
                                     producto.closest('.col-md-4').style.display = 'block';
                                 } else if (filtro === 'periféricos' && 
-                                    (titulo.includes('teclado') || titulo.includes('mouse') || titulo.includes('auriculares'))) {
+                                    (titulo.includes('teclado')
+                                     || titulo.includes('mouse')
+                                      ||(titulo.includes('webcam')
+                                       || (titulo.includes('joystick')
+                                        || (titulo.includes('auriculares'))
+                                        || (titulo.includes('microfono'))
+                                        || (titulo.includes('mousepad'))
+                                    )))){
                                     producto.closest('.col-md-4').style.display = 'block';
                                 } else {
                                     producto.closest('.col-md-4').style.display = 'none';
@@ -205,7 +295,7 @@
                     });
                 });
             </script>
-
+             
             <!-- Productos -->
             <div class="row g-4">
                 <!-- Procesadores -->
@@ -303,13 +393,90 @@
                         </div>
                     </div>
                 </div>
+                <!-- WebCam pc -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="../assets/img/productos/webCam.png" class="card-img-top" alt="WebCam">
+                        <div class="card-body">
+                            <h5 class="card-title">Camara Webcam 19201080 Full Hd</h5>
+                            <p class="card-text">Micrófono de absorción de sonido incorporado, su voz se puede escuchar claramente en 10 metros. Gran calidad y apariencia exquisita.</p>
+                            <p class="text-primary fw-bold">$35.000</p>
+                            <button class="btn btn-primary">Agregar al carrito</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Mouse Pad Gamer Switch Teclado -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="../assets/img/productos/mousePad.jpg" class="card-img-top" alt="Mouse Pad">
+                        <div class="card-body">
+                            <h5 class="card-title">Mouse Pad Gamer Switch Teclado</h5>
+                            <p class="card-text">
+                                <ul>
+                                    <li>Tamaño XL: Con medidas de 90 x 40 cm, este mousepad proporciona un amplio espacio para tus movimientos,
+                                         permitiéndote sumergirte completamente en la acción de tus juegos favoritos.</li>
+                                    <li>Antideslizante: Fabricado con material antideslizante de EVA y caucho, asegura un agarre firme en tu escritorio,
+                                         evitando movimientos no deseados y garantizando una experiencia de juego estable.</li>
+                                    <li>Duradero y Resistente: La pintura resistente al lavado asegura la durabilidad del diseño,
+                                         permitiéndote mantener tu mousepad impecable incluso después de largas sesiones de juego.</li>
+                                </ul>
+                            </p>
+                            <p class="text-primary fw-bold">$13.000</p>
+                            <button class="btn btn-primary">Agregar al carrito</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Joystick -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="../assets/img/productos/JoystickInalambrico.jpg" class="card-img-top" alt="joystick">
+                        <div class="card-body">
+                            <h5 class="card-title">Control (joystick) Inalámbrico Multifuncional: Experimenta el Juego al Máximo Nivel</h5>
+                            <p class="card-text">
+                                <ul>
+                                    <li>Estilo Personalizado: Luces LED de 8 Colores</li>
+                                    <li>Controlador de juegos de alta calidad, compatible con PC y consolas.</li>
+                                    <li>Funciones Avanzadas: Macro programación y Botón TURBO.</li>
+                                    <li>Diseño Ergonómico: Comodidad y Precisión.</li>
+                                    <li>Conectividad Inalámbrica Estable: Sin Interrupciones.</li>
+                                </ul>
+                            </p>
+                            <p class="text-primary fw-bold">$32.000</p>
+                            <button class="btn btn-primary">Agregar al carrito</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Microfonos Postcast -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="../assets/img/productos/microfonoPostcast.jpg" class="card-img-top" alt="MicrofonoPostcast">
+                        <div class="card-body">
+                            <h5 class="card-title">MicrofonoPostcast</h5>
+                            <p class="card-text">Microfono de calidad, compatible con PC y consolas.</p>
+                            <p class="text-primary fw-bold">$15.000</p>
+                            <button class="btn btn-primary">Agregar al carrito</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Mouse Vertical -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="../assets/img/productos/mouseVertical.webp" class="card-img-top" alt="mouse">
+                        <div class="card-body">
+                            <h5 class="card-title">Mouse Vertical</h5>
+                            <p class="card-text">Mouse vertical de calidad, compatible con PC y consolas.</p>
+                            <p class="text-primary fw-bold">$18.000</p>
+                            <button class="btn btn-primary">Agregar al carrito</button>
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </div>
     </main>
 
     <!-- Botón flotante de WhatsApp -->
-    <a href="https://wa.me/56912345678" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/56999442312" class="whatsapp-float" target="_blank">
         <i class="bi bi-whatsapp"></i>
     </a>
 
@@ -324,9 +491,8 @@
                 <div class="col-md-4 mb-3">
                     <h4>Contacto</h4>
                     <ul class="list-unstyled">
-                        <li><i class="bi bi-whatsapp"></i> WhatsApp: +56 9 1234 5678</li>
-                        <li><i class="bi bi-envelope"></i> Email: contacto@tiendapc.cl</li>
-                        <li><i class="bi bi-geo-alt"></i> Dirección: Av. Principal 123, Santiago</li>
+                        <li><i class="bi bi-whatsapp"></i> WhatsApp: +56 9 9944 2312</li>
+                        <li><i class="bi bi-envelope"></i> Email: davidvaldesprogramador@gmail.com</li>
                     </ul>
                 </div>
                 <div class="col-md-4 mb-3">
@@ -343,7 +509,7 @@
             <hr>
             <div class="row">
                 <div class="col-12 text-center">
-                    <p class="mb-0">&copy; 2024 <strong>DaveStore.cl</strong>. Todos los derechos reservados.</p>
+                    <p class="mb-0">&copy; 2025 <strong>DaveStore.cl</strong>. Todos los derechos reservados.</p>
                 </div>
             </div>
         </div>

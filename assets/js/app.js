@@ -43,15 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Manejar botones de "Agregar al carrito"
-  const botonesCarrito = document.querySelectorAll(".btn-primary");
-  botonesCarrito.forEach((boton) => {
-    if (boton.textContent === "Agregar al carrito") {
-      boton.addEventListener("click", function () {
-        alert("Producto agregado al carrito exitosamente");
-      });
-    }
-  });
+  
 });
 
 
@@ -99,3 +91,53 @@ function logout() {
 
 // Verificar al cargar la página
 window.onload = checkAuth;
+
+
+
+// mostrar y ocultar descripcion ul
+
+function mostrarDescripcion() {
+  var texto = document.getElementById("mas-info");
+  var enlace = document.querySelector("a");
+  
+  // Si el texto está oculto, se muestra
+  if (texto.style.display === "none") {
+    texto.style.display = "inline";
+    enlace.innerHTML = "Leer menos";
+  } else {
+    // Si el texto está visible, se oculta
+    texto.style.display = "none";
+    enlace.innerHTML = "Leer más";
+  }
+}
+
+function mostrarDescripcion1() {
+  var texto = document.getElementById("mas-info1");
+  var enlace = document.querySelector("a");
+  
+  // Si el texto está oculto, se muestra
+  if (texto.style.display === "none") {
+    texto.style.display = "inline";
+    enlace.innerHTML = "Leer menos";
+  } else {
+    // Si el texto está visible, se oculta
+    texto.style.display = "none";
+    enlace.innerHTML = "Leer más";
+  }
+}
+
+
+function mostrarDescripcion2() {
+  var texto = document.getElementById("mas-info2");
+  var enlace = document.querySelector("a");
+  
+  // Si el texto está oculto, se muestra
+  if (texto.style.display === "none") {
+    texto.style.display = "inline";
+    enlace.innerHTML = "Leer menos";
+  } else {
+    // Si el texto está visible, se oculta
+    texto.style.display = "none";
+    enlace.innerHTML = "Leer más";
+  }
+}
