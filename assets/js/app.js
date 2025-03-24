@@ -43,10 +43,26 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  
+  // Manejador del modal de proyectos
+  const projectModal = document.getElementById('projectModal');
+  if (projectModal) {
+    projectModal.addEventListener('show.bs.modal', function(event) {
+      const button = event.relatedTarget;
+      const title = button.getAttribute('data-title');
+      const desc = button.getAttribute('data-desc');
+      const img = button.getAttribute('data-img');
+
+      const modalTitle = this.querySelector('#projectModalLabel');
+      const modalDesc = this.querySelector('#projectDesc');
+      const modalImg = this.querySelector('#projectImg');
+
+      modalTitle.textContent = title;
+      modalDesc.textContent = desc;
+      modalImg.src = img;
+      modalImg.alt = title;
+    });
+  }
 });
-
-
 
 // envio del plan paginas web 
 
