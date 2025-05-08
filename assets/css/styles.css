@@ -226,23 +226,82 @@ footer h4 {
     transform: scale(1.2);
 }
 
-/* Floating Buttons */
-.carrito-float, .whatsapp-float {
-    background: var(--neon-purple);
-    border: none;
-    box-shadow: 0 0 15px var(--neon-purple);
+/* Estilos base para botones flotantes */
+.whatsapp-float,
+.carrito-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    right: 25px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    transition: all 0.3s ease;
 }
 
-.carrito-float:hover, .whatsapp-float:hover {
-    background: var(--neon-pink);
-    box-shadow: 0 0 20px var(--neon-pink);
+.whatsapp-float {
+    bottom: 25px;
+    background-color: #25d366;
+    color: white;
 }
 
-/* Animations */
-@keyframes neonPulse {
-    0% { opacity: 0.8; }
-    50% { opacity: 1; }
-    100% { opacity: 0.8; }
+.carrito-float {
+    bottom: 95px;
+    background-color: #007bff;
+}
+
+/* Media queries para responsividad */
+@media (max-width: 768px) {
+    .whatsapp-float,
+    .carrito-float {
+        width: 50px;
+        height: 50px;
+        right: 20px;
+        font-size: 20px;
+    }
+    
+    .whatsapp-float {
+        bottom: 20px;
+    }
+    
+    .carrito-float {
+        bottom: 80px;
+    }
+}
+
+@media (max-width: 576px) {
+    .whatsapp-float,
+    .carrito-float {
+        width: 45px;
+        height: 45px;
+        right: 15px;
+        font-size: 18px;
+    }
+    
+    .whatsapp-float {
+        bottom: 15px;
+    }
+    
+    .carrito-float {
+        bottom: 70px;
+    }
+    
+    /* Ajuste para el badge del carrito */
+    .carrito-float .badge {
+        font-size: 0.6rem;
+        padding: 0.25em 0.4em;
+    }
+}
+
+/* Efecto hover */
+.whatsapp-float:hover,
+.carrito-float:hover {
+    transform: scale(1.1);
+    box-shadow: 2px 2px 11px rgba(0, 0, 0, 0.7);
 }
 
 .navbar-brand, .hero h1 {
@@ -363,48 +422,7 @@ footer h4 {
     object-fit: cover;
 }
 
-/* whatsapp float */
 
-.whatsapp-float {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background-color: #25d366;
-    color: white;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    text-align: center;
-    font-size: 30px;
-    box-shadow: 2px 2px 3px #999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    z-index: 100;
-    transition: all 0.3s ease;
-}
-
-.whatsapp-float:hover {
-    background-color: #128C7E;
-    color: white;
-    transform: scale(1.1);
-}
-
-/* Boton flotante carrito */
-.carrito-float {
-    position: fixed;
-    bottom: 100px;
-    right: 30px;
-    z-index: 1000;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-}
 
 /* Estilos para el perfil de usuario */
 .user-profile {
