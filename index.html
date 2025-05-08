@@ -519,6 +519,12 @@
     </div>
   </section>
 
+  <!-- Botón flotante de Soporte Técnico -->
+<a href="#" class="soporte-float" data-bs-toggle="modal" data-bs-target="#soporteModal">
+  <i class="bi bi-headset"></i>
+</a>
+
+
   <!-- Botón flotante del carrito -->
   <button class="btn btn-primary carrito-float" type="button" data-bs-toggle="offcanvas"
     data-bs-target="#carritoCompras">
@@ -528,10 +534,35 @@
     </span>
   </button>
 
+  
+
   <!-- Botón flotante de WhatsApp -->
   <a href="https://wa.me/56912345678" class="whatsapp-float" target="_blank">
     <i class="bi bi-whatsapp"></i>
   </a>
+
+
+  <!-- Modal de Soporte Técnico -->
+   <!-- Que muestre quieres ir a la pagina web de soporte -->
+  <div class="modal fade" id="soporteModal" tabindex="-1" aria-labelledby="soporteModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="soporteModalLabel">Soporte Técnico</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>¿Necesitas ayuda con tu compra o servicio técnico?</p>
+          <p>Visita nuestro sitio de soporte técnico para más información.</p>
+          <a href="https://davetech-cl-magic-app.magicloops.app/" class="btn btn-primary accordion-button" target="_blank">Ir a Soporte</a>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" onclick="contactarSoporte()">Contactar Soporte</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- FOOTER -->
   <footer class="bg-dark text-white py-4">
