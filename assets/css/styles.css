@@ -122,6 +122,8 @@ body::before {
     border: 2px solid var(--neon-purple);
     box-shadow: 0 0 20px rgba(185, 103, 255, 0.3);
     transition: all 0.3s ease;
+    height: 100%;
+    margin-bottom: 1rem;
 }
 
 .card:hover {
@@ -135,7 +137,17 @@ body::before {
 }
 
 .card-img-top {
-    border-bottom: 2px solid var(--neon-purple);
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: contain;
+    padding: 1rem;
+}
+
+@media (max-width: 576px) {
+    .card-img-top {
+        height: 150px;
+    }
 }
 
 /* Buttons */
@@ -601,6 +613,36 @@ h3 ,p,li{
     }
 }
 
+/* Navbar responsivo */
+@media (max-width: 991px) {
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+    
+    .iconoLogo {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .navbar-toggler {
+        padding: 0.25rem 0.5rem;
+    }
+    
+    .navbar-nav {
+        margin-top: 1rem;
+    }
+    
+    .nav-item {
+        text-align: center;
+    }
+    
+    .user-profile {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+}
+
 /* Hamburger retrowave - vaporwave blanco navbar-toggler-icon */
 .navbar-toggler-icon {
     filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7));
@@ -717,5 +759,122 @@ h3 ,p,li{
     transform: scale(1.1);
     background-color: #0056b3;
     color: white;
+}
+
+/* Imágenes responsivas */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Botones flotantes responsivos */
+.whatsapp-float,
+.carrito-float {
+    position: fixed;
+    z-index: 1000;
+}
+
+@media (max-width: 576px) {
+    .whatsapp-float {
+        bottom: 1rem;
+        right: 1rem;
+        width: 45px;
+        height: 45px;
+        font-size: 1.5rem;
+    }
+    
+    .carrito-float {
+        bottom: 1rem;
+        right: 4rem;
+        width: 45px;
+        height: 45px;
+        font-size: 1.5rem;
+    }
+    
+    .badge {
+        font-size: 0.7rem;
+        padding: 0.25em 0.4em;
+    }
+}
+
+/* Mejoras para el offcanvas del carrito */
+@media (max-width: 576px) {
+    .offcanvas {
+        width: 100% !important;
+    }
+    
+    .offcanvas-body {
+        padding: 1rem;
+    }
+}
+
+/* Estilos responsivos para las cards */
+.card {
+    height: 100%;
+    margin-bottom: 1rem;
+}
+
+.card-img-top {
+    height: auto;
+    max-height: 200px;
+    object-fit: contain;
+    padding: 1rem;
+}
+
+@media (max-width: 768px) {
+    .col-md-4 {
+        padding: 0 0.5rem;
+    }
+    
+    .card {
+        margin-bottom: 1rem;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+    
+    .card-title {
+        font-size: 1.1rem;
+    }
+    
+    .card-text {
+        font-size: 0.9rem;
+    }
+    
+    .btn-container .btn {
+        width: 100%;
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Estilos para los filtros responsivos */
+.btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.btn-group .btn {
+    flex: 0 1 auto;
+    white-space: nowrap;
+    margin: 0.25rem;
+    min-width: 100px;
+}
+
+@media (max-width: 576px) {
+    .btn-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .btn-group .btn {
+        width: 100%;
+        margin: 0.25rem 0;
+    }
 }
 
