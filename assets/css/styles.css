@@ -104,6 +104,7 @@ body::before {
     border: 3px solid var(--neon-blue);
     box-shadow: 0 0 15px var(--neon-blue);
     /* responsibe */
+    
     @media (max-width: 768px) {
         width: 80px;
         height: 80px;
@@ -115,6 +116,43 @@ body::before {
 
     }
 }
+/* movimiento giratorio moneda iconoLogo de izquierda a derecha */
+@keyframes girar {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.iconoLogo {
+    animation: girar 5s linear infinite;
+}
+/* Efecto de parpadeo */
+@keyframes parpadeo {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+/* Aplicar el efecto de parpadeo al logo */
+.iconoLogo {
+    animation: parpadeo 1s infinite;
+}
+/* Estilo de los enlaces */
+a {
+    color: var(--neon-blue);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+a:hover {
+    color: var(--neon-pink);
+    text-shadow: 0 0 10px var(--neon-pink);
+}
+
+
 
 /* Cards Styling */
 .card {
