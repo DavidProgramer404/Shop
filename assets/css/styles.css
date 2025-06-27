@@ -916,3 +916,149 @@ img {
     }
 }
 
+/* Estilos para notificaciones */
+.toast {
+    background: rgba(45, 27, 78, 0.95);
+    border: 2px solid var(--neon-blue);
+    box-shadow: 0 0 20px rgba(1, 205, 254, 0.3);
+    color: white;
+}
+
+.toast-header {
+    background: rgba(45, 27, 78, 0.8);
+    border-bottom: 1px solid var(--neon-blue);
+    color: var(--neon-pink);
+}
+
+.toast-body {
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8rem;
+}
+
+/* Estilos mejorados para el carrito */
+.offcanvas {
+    background: rgba(45, 27, 78, 0.95);
+    backdrop-filter: blur(10px);
+    border-left: 2px solid var(--neon-blue);
+}
+
+.offcanvas-header {
+    background: rgba(45, 27, 78, 0.8);
+    border-bottom: 1px solid var(--neon-blue);
+}
+
+.offcanvas-title {
+    color: var(--neon-pink);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1rem;
+}
+
+.offcanvas-body {
+    color: white;
+}
+
+/* Estilos para los items del carrito */
+.carrito-item {
+    background: rgba(45, 27, 78, 0.6);
+    border: 1px solid var(--neon-purple);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.carrito-item:hover {
+    background: rgba(45, 27, 78, 0.8);
+    border-color: var(--neon-pink);
+    box-shadow: 0 0 10px rgba(255, 113, 206, 0.3);
+}
+
+/* Botones del carrito */
+.carrito-float {
+    background: var(--neon-blue);
+    border: 2px solid var(--neon-blue);
+    box-shadow: 0 0 15px var(--neon-blue);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.carrito-float:hover {
+    background: var(--neon-pink);
+    border-color: var(--neon-pink);
+    box-shadow: 0 0 20px var(--neon-pink);
+    transform: scale(1.1);
+}
+
+.carrito-float .badge {
+    background: var(--neon-pink);
+    border: 1px solid var(--neon-pink);
+    box-shadow: 0 0 10px var(--neon-pink);
+}
+
+/* Animación para las notificaciones */
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.toast.show {
+    animation: slideInRight 0.3s ease-out;
+}
+
+/* Mejoras para botones de cantidad */
+.btn-outline-secondary {
+    color: var(--neon-blue);
+    border-color: var(--neon-blue);
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-secondary:hover {
+    color: white;
+    background: var(--neon-blue);
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 10px var(--neon-blue);
+}
+
+.btn-outline-danger {
+    color: var(--neon-pink);
+    border-color: var(--neon-pink);
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-danger:hover {
+    color: white;
+    background: var(--neon-pink);
+    border-color: var(--neon-pink);
+    box-shadow: 0 0 10px var(--neon-pink);
+}
+
+/* Estilos para el total del carrito */
+#totalCarrito {
+    color: var(--neon-green);
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-shadow: 0 0 10px var(--neon-green);
+}
+
+/* Botón de proceder al pago */
+.btn-success {
+    background: var(--neon-green);
+    border: 2px solid var(--neon-green);
+    box-shadow: 0 0 15px var(--neon-green);
+    transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+    background: var(--neon-pink);
+    border-color: var(--neon-pink);
+    box-shadow: 0 0 20px var(--neon-pink);
+    transform: scale(1.05);
+}
+
