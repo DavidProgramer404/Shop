@@ -316,8 +316,8 @@ function generarCotizacion() {
 💰 *Total: $${total.toLocaleString()}*
 
 📞 *Para proceder con la compra, contacta a nuestro equipo de ventas:*
-• WhatsApp: +56 9 1234 5678
-• Email: contacto@tiendapc.cl
+• WhatsApp: +56 9 9944 2312
+• Email: contacto@davestore.cl
 
 ⏰ *Esta cotización es válida por 24 horas*
 
