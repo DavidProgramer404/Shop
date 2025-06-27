@@ -290,7 +290,22 @@ function procesarCompra() {
     return;
   }
   
-  generarCotizacion();
+  // Guardar datos del carrito en localStorage para la boleta
+  guardarDatosParaBoleta();
+  
+  // Navegar a la página de boleta
+  window.location.href = './pages/boleta.html';
+}
+
+// Función para guardar datos del carrito para la boleta
+function guardarDatosParaBoleta() {
+  const datosBoleta = {
+    productos: carrito,
+    fecha: new Date().toISOString(),
+    total: carrito.reduce((total, item) => total + (item.precio * item.cantidad), 0)
+  };
+  
+  localStorage.setItem('datosBoleta', JSON.stringify(datosBoleta));
 }
 
 // Función para generar cotización

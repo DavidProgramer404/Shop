@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boleta - DaveStore.cl</title>
+    <!-- Font ARCADE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <link rel="icon" href="../assets/img/game-shop.png" type="image/icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container">
+                <img src="../assets/img/logoretrowave.png" alt="Logo" class="iconoLogo" />
+                <a class="navbar-brand ms-3" href="../index.html">DaveStore.cl</a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./nosotros.html">Nosotros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./servicios.html">Servicios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./contacto.html">Contacto</a>
+                        </li>
+                        <li class="nav-item">
+                            <div class="nav-link user-profile">
+                                <span id="userDisplay" class="me-2"></span>
+                                <button onclick="logout()" class="btn btn-outline-danger btn-sm">
+                                    <i class="fas fa-sign-out-alt"></i> Salir
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <!-- Encabezado de la Boleta -->
+                <div class="boleta-header text-center mb-4">
+                    <div class="d-flex align-items-center justify-content-center mb-3">
+                        <img src="../assets/img/logoretrowave.png" alt="Logo DaveStore" class="boleta-logo me-3">
+                        <div>
+                            <h1 class="boleta-title">DAVESTORE.CL</h1>
+                            <p class="boleta-subtitle">Tu Tienda Gaming de Confianza</p>
+                        </div>
+                    </div>
+                    <div class="boleta-info">
+                        <p><strong>RUT:</strong> 76.123.456-7</p>
+                        <p><strong>Dirección:</strong> Av. Providencia 1234, Santiago, Chile</p>
+                        <p><strong>Teléfono:</strong> +56 9 9944 2312</p>
+                        <p><strong>Email:</strong> contacto@davestore.cl</p>
+                    </div>
+                </div>
+
+                <!-- Información de la Boleta -->
+                <div class="boleta-details mb-4">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3 class="boleta-section-title">Información de la Boleta</h3>
+                            <div class="boleta-field">
+                                <label><strong>Número de Boleta:</strong></label>
+                                <span id="numeroBoleta">B-001-001</span>
+                            </div>
+                            <div class="boleta-field">
+                                <label><strong>Fecha de Emisión:</strong></label>
+                                <span id="fechaEmision"></span>
+                            </div>
+                            <div class="boleta-field">
+                                <label><strong>Hora de Emisión:</strong></label>
+                                <span id="horaEmision"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h3 class="boleta-section-title">Información del Cliente</h3>
+                            <div class="boleta-field">
+                                <label><strong>Nombre:</strong></label>
+                                <span id="nombreCliente">Cliente Consumidor Final</span>
+                                <button type="button" class="btn btn-sm btn-outline-primary ms-2" onclick="editarCliente()">
+                                    <i class="bi bi-pencil"></i> Editar
+                                </button>
+                            </div>
+                            <div class="boleta-field">
+                                <label><strong>RUT:</strong></label>
+                                <span id="rutCliente">11.111.111-1</span>
+                            </div>
+                            <div class="boleta-field">
+                                <label><strong>Email:</strong></label>
+                                <span id="emailCliente">cliente@email.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabla de Productos -->
+                <div class="boleta-products mb-4">
+                    <h3 class="boleta-section-title">Detalle de Productos</h3>
+                    
+                    <!-- Formulario para agregar productos -->
+                    <div class="producto-form mb-4">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="productoNombre" class="form-label">Nombre del Producto</label>
+                                    <input type="text" class="form-control" id="productoNombre" placeholder="Ej: Joystick Xbox 360">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="productoCantidad" class="form-label">Cantidad</label>
+                                    <input type="number" class="form-control" id="productoCantidad" min="1" value="1">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="productoPrecio" class="form-label">Precio Unitario</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">$</span>
+                                        <input type="number" class="form-control" id="productoPrecio" min="0" placeholder="0">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="form-label">&nbsp;</label>
+                                    <div class="d-grid">
+                                        <button type="button" class="btn btn-success" onclick="agregarProducto()">
+                                            <i class="bi bi-plus-circle"></i> Agregar Producto
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tabla de productos -->
+                    <div class="table-responsive">
+                        <table class="table boleta-table">
+                            <thead>
+                                <tr>
+                                    <th>Producto</th>
+                                    <th class="text-center">Cantidad</th>
+                                    <th class="text-end">Precio Unitario</th>
+                                    <th class="text-end">Subtotal</th>
+                                    <th class="text-center">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="productosTabla">
+                                <!-- Los productos se insertarán dinámicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- Mensaje cuando no hay productos -->
+                    <div id="mensajeVacio" class="text-center py-4" style="display: none;">
+                        <i class="bi bi-cart-x" style="font-size: 3rem; color: var(--neon-purple);"></i>
+                        <p class="mt-3">No hay productos agregados</p>
+                        <p class="text-muted">Agrega productos usando el formulario de arriba</p>
+                    </div>
+                </div>
+
+                <!-- Totales -->
+                <div class="boleta-totals mb-4">
+                    <div class="row justify-content-end">
+                        <div class="col-md-6">
+                            <table class="table table-borderless totals-table">
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Subtotal:</strong></td>
+                                        <td class="text-end" id="subtotal">$0</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>IVA (19%):</strong></td>
+                                        <td class="text-end" id="iva">$0</td>
+                                    </tr>
+                                    <tr class="total-row">
+                                        <td><strong>TOTAL:</strong></td>
+                                        <td class="text-end" id="total">$0</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Información Adicional -->
+                <div class="boleta-additional mb-4">
+                    <h3 class="boleta-section-title">Información Adicional</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="boleta-field">
+                                <label><strong>Método de Pago:</strong></label>
+                                <span id="metodoPago">Transferencia Bancaria</span>
+                            </div>
+                            <div class="boleta-field">
+                                <label><strong>Estado de Pago:</strong></label>
+                                <span class="badge bg-success" id="estadoPago">Pagado</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="boleta-field">
+                                <label><strong>Vendedor:</strong></label>
+                                <span id="vendedor">Equipo DaveStore</span>
+                            </div>
+                            <div class="boleta-field">
+                                <label><strong>Condiciones:</strong></label>
+                                <span id="condiciones">Pago al contado</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Términos y Condiciones -->
+                <div class="boleta-terms mb-4">
+                    <h3 class="boleta-section-title">Términos y Condiciones</h3>
+                    <div class="terms-content">
+                        <p><strong>Garantía:</strong> Todos nuestros productos cuentan con garantía de fábrica según las especificaciones del fabricante.</p>
+                        <p><strong>Devoluciones:</strong> Aceptamos devoluciones dentro de los 30 días posteriores a la compra, siempre que el producto esté en su empaque original y sin usar.</p>
+                        <p><strong>Soporte Técnico:</strong> Ofrecemos soporte técnico gratuito por 6 meses después de la compra.</p>
+                        <p><strong>Envío:</strong> Los productos se envían dentro de 24-48 horas hábiles después de confirmado el pago.</p>
+                    </div>
+                </div>
+
+                <!-- Pie de Boleta -->
+                <div class="boleta-footer text-center">
+                    <p class="boleta-thanks">¡Gracias por elegir DaveStore.cl!</p>
+                    <p class="boleta-contact">Para consultas: +56 9 9944 2312 | contacto@davestore.cl</p>
+                    <p class="boleta-web">www.davestore.cl</p>
+                </div>
+
+                <!-- Botones de Acción -->
+                <div class="boleta-actions text-center mt-4">
+                    <button class="btn btn-primary me-3" onclick="descargarBoleta()">
+                        <i class="bi bi-download"></i> Descargar Boleta (TXT)
+                    </button>
+                    <button class="btn btn-outline-primary me-3" onclick="imprimirBoleta()">
+                        <i class="bi bi-printer"></i> Imprimir
+                    </button>
+                    <a href="../index.html" class="btn btn-outline-secondary">
+                        <i class="bi bi-house"></i> Volver al Inicio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Botón flotante de WhatsApp -->
+    <a href="https://wa.me/56999442312" class="whatsapp-float" target="_blank">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <!-- Botón flotante de Soporte Técnico -->
+    <a href="#" class="soporte-float" data-bs-toggle="modal" data-bs-target="#soporteModal">
+        <i class="bi bi-headset"></i>
+    </a>
+
+    <!-- Modal de Soporte Técnico -->
+    <div class="modal fade" id="soporteModal" tabindex="-1" aria-labelledby="soporteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="soporteModalLabel">Soporte Técnico</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>¿Necesitas ayuda con tu compra o servicio técnico?</p>
+                    <p>Visita nuestro sitio de soporte técnico para más información.</p>
+                    <a href="https://davetech-cl-magic-app.magicloops.app/" class="btn btn-primary accordion-button" target="_blank">Ir a Soporte</a>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" onclick="contactarSoporte()">Contactar Soporte</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para editar información del cliente -->
+    <div class="modal fade" id="editarClienteModal" tabindex="-1" aria-labelledby="editarClienteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editarClienteModalLabel">Editar Información del Cliente</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="clienteForm">
+                        <div class="mb-3">
+                            <label for="editNombreCliente" class="form-label">Nombre Completo</label>
+                            <input type="text" class="form-control" id="editNombreCliente" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editRutCliente" class="form-label">RUT</label>
+                            <input type="text" class="form-control" id="editRutCliente" placeholder="12.345.678-9" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editEmailCliente" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="editEmailCliente" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" onclick="guardarCliente()">Guardar Cambios</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h4>Sobre Nosotros</h4>
+                    <p>
+                        Somos tu tienda de confianza en componentes de PC. Ofrecemos los
+                        mejores productos con garantía y servicio técnico especializado.
+                    </p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h4>Contacto</h4>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-whatsapp"></i> WhatsApp: +56 9 9944 2312</li>
+                        <li>
+                            <i class="bi bi-envelope"></i> Email: contacto@davestore.cl
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h4>Suscríbete</h4>
+                    <p>Recibe nuestras ofertas y novedades</p>
+                    <form class="mb-3">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Tu email" />
+                            <button class="btn btn-primary" type="submit">Suscribir</button>
+                        </div>
+                    </form>
+                    <h5>Síguenos en:</h5>
+                    <div class="social-links">
+                        <a href="#" class="text-white me-2"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-white me-2"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-white me-2"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-white"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="mb-0">
+                        &copy; 2025 <strong>DaveStore.cl</strong>. Todos los
+                        derechos reservados.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/app.js"></script>
+    <script src="../assets/js/boleta.js"></script>
+
+</body>
+
+</html>

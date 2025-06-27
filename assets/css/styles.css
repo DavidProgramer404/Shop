@@ -1062,3 +1062,558 @@ img {
     transform: scale(1.05);
 }
 
+/* ===== ESTILOS PARA LA PÁGINA DE BOLETA ===== */
+
+/* Contenedor principal de la boleta */
+.boleta-header {
+    background: rgba(45, 27, 78, 0.8);
+    border: 2px solid var(--neon-blue);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 0 20px rgba(1, 205, 254, 0.3);
+    margin-bottom: 2rem;
+}
+
+.boleta-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid var(--neon-pink);
+    box-shadow: 0 0 15px var(--neon-pink);
+}
+
+.boleta-title {
+    color: var(--neon-pink);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.5rem;
+    text-shadow: 0 0 15px var(--neon-pink);
+    margin: 0;
+    animation: neonPulse 2s infinite;
+}
+
+.boleta-subtitle {
+    color: var(--neon-blue);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    margin: 0;
+    text-shadow: 0 0 10px var(--neon-blue);
+}
+
+.boleta-info {
+    margin-top: 1rem;
+}
+
+.boleta-info p {
+    color: var(--neon-green);
+    margin: 0.25rem 0;
+    font-size: 0.9rem;
+}
+
+/* Secciones de la boleta */
+.boleta-details,
+.boleta-products,
+.boleta-totals,
+.boleta-additional,
+.boleta-terms {
+    background: rgba(45, 27, 78, 0.6);
+    border: 1px solid var(--neon-purple);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 0 15px rgba(185, 103, 255, 0.2);
+}
+
+.boleta-section-title {
+    color: var(--neon-pink);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1rem;
+    text-shadow: 0 0 10px var(--neon-pink);
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--neon-purple);
+    padding-bottom: 0.5rem;
+}
+
+/* Campos de la boleta */
+.boleta-field {
+    margin-bottom: 0.75rem;
+    padding: 0.5rem;
+    background: rgba(45, 27, 78, 0.3);
+    border-radius: 5px;
+    border-left: 3px solid var(--neon-blue);
+}
+
+.boleta-field label {
+    color: var(--neon-blue);
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.boleta-field span {
+    color: var(--neon-green);
+    font-weight: 500;
+}
+
+/* Tabla de productos */
+.boleta-table {
+    background: rgba(45, 27, 78, 0.4);
+    border: 1px solid var(--neon-purple);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.boleta-table thead {
+    background: rgba(185, 103, 255, 0.3);
+}
+
+.boleta-table th {
+    color: var(--neon-pink);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8rem;
+    border-bottom: 2px solid var(--neon-purple);
+    padding: 1rem 0.5rem;
+}
+
+.boleta-table td {
+    color: var(--neon-green);
+    border-bottom: 1px solid rgba(185, 103, 255, 0.2);
+    padding: 0.75rem 0.5rem;
+    vertical-align: middle;
+}
+
+.boleta-table tbody tr:hover {
+    background: rgba(185, 103, 255, 0.1);
+}
+
+/* Tabla de totales */
+.totals-table {
+    background: rgba(45, 27, 78, 0.4);
+    border: 1px solid var(--neon-green);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.totals-table td {
+    color: var(--neon-green);
+    padding: 0.5rem;
+    border: none;
+}
+
+.total-row {
+    border-top: 2px solid var(--neon-green) !important;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.total-row td {
+    color: var(--neon-pink) !important;
+    text-shadow: 0 0 10px var(--neon-pink);
+}
+
+/* Términos y condiciones */
+.terms-content {
+    color: var(--neon-green);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.terms-content p {
+    margin-bottom: 0.75rem;
+    padding-left: 1rem;
+    border-left: 2px solid var(--neon-blue);
+}
+
+.terms-content strong {
+    color: var(--neon-pink);
+}
+
+/* Pie de boleta */
+.boleta-footer {
+    background: rgba(45, 27, 78, 0.8);
+    border: 2px solid var(--neon-pink);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 0 20px rgba(255, 113, 206, 0.3);
+}
+
+.boleta-thanks {
+    color: var(--neon-pink);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.2rem;
+    text-shadow: 0 0 15px var(--neon-pink);
+    margin-bottom: 1rem;
+    animation: neonPulse 2s infinite;
+}
+
+.boleta-contact {
+    color: var(--neon-blue);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.boleta-web {
+    color: var(--neon-green);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Botones de acción */
+.boleta-actions {
+    margin-top: 2rem;
+}
+
+.boleta-actions .btn {
+    margin: 0.5rem;
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.75rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.boleta-actions .btn-primary {
+    background: var(--neon-blue);
+    border: 2px solid var(--neon-blue);
+    box-shadow: 0 0 15px var(--neon-blue);
+}
+
+.boleta-actions .btn-primary:hover {
+    background: var(--neon-pink);
+    border-color: var(--neon-pink);
+    box-shadow: 0 0 20px var(--neon-pink);
+    transform: scale(1.05);
+}
+
+.boleta-actions .btn-outline-primary {
+    color: var(--neon-blue);
+    border-color: var(--neon-blue);
+    background: transparent;
+}
+
+.boleta-actions .btn-outline-primary:hover {
+    background: var(--neon-blue);
+    color: var(--darker-purple);
+    box-shadow: 0 0 15px var(--neon-blue);
+}
+
+.boleta-actions .btn-outline-secondary {
+    color: var(--neon-green);
+    border-color: var(--neon-green);
+    background: transparent;
+}
+
+.boleta-actions .btn-outline-secondary:hover {
+    background: var(--neon-green);
+    color: var(--darker-purple);
+    box-shadow: 0 0 15px var(--neon-green);
+}
+
+/* Badges */
+.badge.bg-success {
+    background: var(--neon-green) !important;
+    color: var(--darker-purple) !important;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    box-shadow: 0 0 10px var(--neon-green);
+}
+
+/* Responsive para la boleta */
+@media (max-width: 768px) {
+    .boleta-title {
+        font-size: 1.2rem;
+    }
+    
+    .boleta-subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .boleta-logo {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .boleta-section-title {
+        font-size: 0.9rem;
+    }
+    
+    .boleta-table th,
+    .boleta-table td {
+        font-size: 0.8rem;
+        padding: 0.5rem 0.25rem;
+    }
+    
+    .boleta-actions .btn {
+        width: 100%;
+        margin: 0.25rem 0;
+    }
+    
+    .boleta-info p {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .boleta-header {
+        padding: 1rem;
+    }
+    
+    .boleta-details,
+    .boleta-products,
+    .boleta-totals,
+    .boleta-additional,
+    .boleta-terms {
+        padding: 1rem;
+    }
+    
+    .boleta-table {
+        font-size: 0.75rem;
+    }
+    
+    .boleta-table th,
+    .boleta-table td {
+        padding: 0.25rem;
+    }
+    
+    .totals-table {
+        font-size: 0.9rem;
+    }
+}
+
+/* Estilos para impresión */
+@media print {
+    body {
+        background: white !important;
+        color: black !important;
+    }
+    
+    .navbar,
+    .whatsapp-float,
+    .soporte-float,
+    .boleta-actions,
+    footer {
+        display: none !important;
+    }
+    
+    .boleta-header,
+    .boleta-details,
+    .boleta-products,
+    .boleta-totals,
+    .boleta-additional,
+    .boleta-terms,
+    .boleta-footer {
+        background: white !important;
+        border: 1px solid #ccc !important;
+        box-shadow: none !important;
+        color: black !important;
+    }
+    
+    .boleta-title,
+    .boleta-section-title {
+        color: black !important;
+        text-shadow: none !important;
+    }
+    
+    .boleta-field label,
+    .boleta-field span,
+    .boleta-table th,
+    .boleta-table td,
+    .totals-table td,
+    .terms-content p {
+        color: black !important;
+    }
+    
+    .boleta-table {
+        background: white !important;
+        border: 1px solid #ccc !important;
+    }
+    
+    .boleta-table thead {
+        background: #f8f9fa !important;
+    }
+    
+    .total-row {
+        border-top: 2px solid #000 !important;
+        font-weight: bold;
+    }
+    
+    .total-row td {
+        color: black !important;
+        text-shadow: none !important;
+    }
+}
+
+/* ===== ESTILOS PARA EL FORMULARIO DE PRODUCTOS ===== */
+
+.producto-form {
+    background: rgba(45, 27, 78, 0.4);
+    border: 1px solid var(--neon-blue);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 0 15px rgba(1, 205, 254, 0.2);
+}
+
+.producto-form .form-label {
+    color: var(--neon-blue);
+    font-weight: bold;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 5px var(--neon-blue);
+}
+
+.producto-form .form-control {
+    background: rgba(45, 27, 78, 0.6);
+    border: 1px solid var(--neon-purple);
+    color: var(--neon-green);
+    font-family: 'Orbitron', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.producto-form .form-control:focus {
+    background: rgba(45, 27, 78, 0.8);
+    border-color: var(--neon-pink);
+    box-shadow: 0 0 15px rgba(255, 113, 206, 0.3);
+    color: var(--neon-green);
+}
+
+.producto-form .form-control::placeholder {
+    color: rgba(5, 255, 161, 0.6);
+}
+
+.producto-form .input-group-text {
+    background: var(--neon-purple);
+    border: 1px solid var(--neon-purple);
+    color: white;
+    font-weight: bold;
+}
+
+.producto-form .btn-success {
+    background: var(--neon-green);
+    border: 2px solid var(--neon-green);
+    box-shadow: 0 0 15px var(--neon-green);
+    color: var(--darker-purple);
+    font-weight: bold;
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.producto-form .btn-success:hover {
+    background: var(--neon-pink);
+    border-color: var(--neon-pink);
+    box-shadow: 0 0 20px var(--neon-pink);
+    transform: scale(1.05);
+}
+
+/* Estilos para el mensaje de carrito vacío */
+#mensajeVacio {
+    background: rgba(45, 27, 78, 0.3);
+    border: 2px dashed var(--neon-purple);
+    border-radius: 15px;
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+#mensajeVacio i {
+    font-size: 4rem;
+    color: var(--neon-purple);
+    margin-bottom: 1rem;
+    animation: pulse 2s infinite;
+}
+
+#mensajeVacio p {
+    color: var(--neon-green);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+#mensajeVacio .text-muted {
+    color: rgba(5, 255, 161, 0.7) !important;
+    font-size: 1rem;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.7;
+    }
+}
+
+/* Mejoras para los botones de acción en la tabla */
+.boleta-table .btn-outline-primary {
+    color: var(--neon-blue);
+    border-color: var(--neon-blue);
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.boleta-table .btn-outline-primary:hover {
+    background: var(--neon-blue);
+    color: var(--darker-purple);
+    box-shadow: 0 0 10px var(--neon-blue);
+    transform: scale(1.1);
+}
+
+.boleta-table .btn-outline-danger {
+    color: var(--neon-pink);
+    border-color: var(--neon-pink);
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.boleta-table .btn-outline-danger:hover {
+    background: var(--neon-pink);
+    color: var(--darker-purple);
+    box-shadow: 0 0 10px var(--neon-pink);
+    transform: scale(1.1);
+}
+
+/* Responsive para el formulario */
+@media (max-width: 768px) {
+    .producto-form {
+        padding: 1rem;
+    }
+    
+    .producto-form .form-label {
+        font-size: 0.8rem;
+    }
+    
+    .producto-form .form-control {
+        font-size: 0.9rem;
+    }
+    
+    .producto-form .btn-success {
+        font-size: 0.8rem;
+        padding: 0.5rem 1rem;
+    }
+    
+    #mensajeVacio {
+        padding: 2rem 1rem;
+    }
+    
+    #mensajeVacio i {
+        font-size: 3rem;
+    }
+    
+    #mensajeVacio p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .producto-form .row > div {
+        margin-bottom: 1rem;
+    }
+    
+    .producto-form .btn-success {
+        width: 100%;
+    }
+}
+
